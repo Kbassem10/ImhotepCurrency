@@ -1,9 +1,7 @@
 import sys
 import os
 #kbassem102005
-os.environ['EXCHANGE_API_KEY_PRIMARY'] = '12644ad30490895a4ffd9844'
-#karimbassemj
-os.environ['EXCHANGE_API_KEY_SECONDARY'] = '970289727569e4224d9109fc'
+os.environ['EXCHANGE_API_KEY_PRIMARY'] = 'dd9d248f-0df4-4671-b76c-a7a24a63dee6'
 
 # Add the directory containing your Flask application to the Python path
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
