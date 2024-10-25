@@ -27,16 +27,18 @@ def calculate():
     to_currency_placeholder = to_currency
     amount_placeholder = amount
     primary_api_key = os.environ.get('EXCHANGE_API_KEY_PRIMARY')
-    secondary_api_key = os.environ.get('EXCHANGE_API_KEY_SECONDARY')
+
     try:
-        response = requests.get(f"https://v6.exchangerate-api.com/v6/{primary_api_key}/latest/{from_currency}")
+        response = requests.get(f"https://imhotepexchangeratesapi.pythonanywhere.com/latest_rates/{primary_api_key}/{from_currency}")
         data = response.json()
-    except:
-        response = requests.get(f"https://v6.exchangerate-api.com/v6/{secondary_api_key}/latest/{from_currency}")
-        data = response.json()  
+        rate = data["data"]
+
+    except requests.RequestException as e:
+        print(f"Failed to fetch exchange rates: {e}")
+        return None
 
     if response.status_code == 200:
-        rate = data["conversion_rates"][to_currency]
+        rate = data["data"][to_currency]
         result = amount * rate
         res = f"{result:,}"
         return render_template("indexPlus.html", res=res, from_currency_placeholder= from_currency_placeholder, to_currency_placeholder=to_currency_placeholder, amount_placeholder=amount_placeholder)
