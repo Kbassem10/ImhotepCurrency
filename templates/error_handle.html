@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='icc.png') }}">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203820067986412"
+        crossorigin="anonymous"></script>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>Imhotep Currency Calculator</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <meta name="google-site-verification" content="5VWhaKmsV5Wzrdko3_Si5vVnmNsMDttsJFA04mFxrsE" />
+        <meta name="description" content="Imhotep Currency Converter - Convert currencies with ease.">
+        <meta name="keywords" content="currency, converter, exchange rates, Imhotep Currency Converter">
+        <link rel="canonical" href="https://imhotepcc.vercel.app/">
+
+        <meta property="og:title" content="Imhotep Currency Converter">
+        <meta property="og:description" content="Convert currencies with ease.">
+        <meta property="og:image" content="https://imhotepcc.vercel.app/static/icc.jpeg">
+        <meta property="og:url" content="https://imhotepcc.vercel.app/">
+    
+        <meta name="twitter:card" content="https://imhotepcc.vercel.app/static/icc.jpeg">
+        <meta name="twitter:title" content="Imhotep Currency Converter">
+        <meta name="twitter:description" content="Convert currencies with ease.">
+        <meta name="twitter:image" content="https://imhotepcc.vercel.app/static/icc.jpeg">
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-YOUR_TRACKING_ID"></script>   
+    
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+    
+            gtag('config', 'UA-YOUR_TRACKING_ID');   
+    
+        </script>
+
+    </head>
+<body>
+    <div class="grid h-screen place-content-center bg-white px-4 dark:bg-gray-900">
+  <div class="text-center">
+    <h1 class="text-9xl font-black text-gray-200 dark:text-gray-700">{{error_code}}</h1>
+
+    <p class="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+      Uh-oh!
+    </p>
+
+    <p class="mt-4 text-gray-500 dark:text-gray-400">{{ error_description }}</p>
+
+    <a
+      href="/"
+      class="mt-6 inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring"
+    >
+      Go Back Home
+    </a>
+  </div>
+</div>
+</body>
+</html>
