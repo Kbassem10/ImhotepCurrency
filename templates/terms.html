@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='9b6a6904-b6cd-416b-88b1-ba3d981c9fed.ico')}}">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203820067986412"
+        crossorigin="anonymous"></script>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <meta charset="utf-8">
+        <title>Terms and Conditions</title>
+        <style>
+        .bg-color{
+            background-color: #D9D9D9;
+            color: #986f07;
+            }
+        #loading-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        z-index: 1000;
+        text-align: center;
+        font-size: 30px;
+        /* Center the content */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-radius: 50%;
+        border-top: 16px solid #986f07; /* Blue */
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+        </style>
+    </head>
+    <body class="bg-color">
+        <!-- Loading Screen -->
+        <div id="loading-overlay">
+            <div class="loader"></div>
+            <p>Loading...</p>
+        </div>
+        <div class="left-aligned">
+            <button onclick="history.back()" class="btn-black">Back</button>
+        </div>
+        <h1 class="centered">Terms and Conditions</h1>
+
+        <h2>Introduction</h2>
+        <p>
+            These Terms and Conditions govern your use of our website and services. By accessing or using our website, you agree to be bound by these Terms and Conditions.
+        </p>
+
+        <h2>Use of the Website</h2>
+        <p>
+            You agree to use the website only for lawful purposes and in a way that does not infringe the rights of others or restrict their use of the website.
+        </p>
+
+        <h2>Intellectual Property</h2>
+        <p>
+            All content on this website, including text, graphics, logos, and images, is the property of Imhotep Tech and is protected by copyright laws.
+        </p>
+
+        <h2>Limitation of Liability</h2>
+        <p>
+            Imhotep Tech will not be liable for any damages arising from the use of this website or the inability to use the website.
+        </p>
+
+        <h2>Changes to Terms and Conditions</h2>
+        <p>
+            We reserve the right to update these Terms and Conditions at any time. Your continued use of the website constitutes acceptance of the updated Terms and Conditions.
+        </p>
+    </body>
+    <script>
+        function showLoadingScreen() {
+            document.getElementById('loading-overlay').style.display = 'flex';
+        }
+
+        function hideLoadingScreen() {
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+
+        // Show loading screen on form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function() {
+                    showLoadingScreen();
+                });
+            });
+        });
+
+        // Handle page load and unload
+        window.addEventListener('load', function() {
+            hideLoadingScreen(); // Ensure loading screen is hidden after initial load
+        });
+
+        window.addEventListener('beforeunload', function() {
+            showLoadingScreen(); // Show loading screen when navigating away
+        });
+
+        // Show loading screen when navigating back
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                showLoadingScreen();
+                setTimeout(function() {
+                    hideLoadingScreen();
+                }, 100); // Adjust delay if necessary
+            }
+        });
+    </script>
+</html>
