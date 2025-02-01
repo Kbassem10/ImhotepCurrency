@@ -2,3 +2,4 @@ wsgi.py
 flask_session/
 __pycache__/
 .vscode/
+imhotep_currency_convertor/
