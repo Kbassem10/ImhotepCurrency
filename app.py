@@ -100,19 +100,10 @@ def add_header(response):
     response.headers['X-Frame-Options'] = 'SAMEORIGIN'
     return response
 
-# Remove this function - it's disabling a critical security feature
-# @app.after_request
-# def remove_csp_header(response):
-#     if 'Content-Security-Policy' in response.headers:
-#         del response.headers['Content-Security-Policy']
-#     return response
-
-# Instead, add a strong CSP header
 @app.after_request
-def add_security_headers(response):
-    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data:;"
-    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
-    response.headers['X-Content-Type-Options'] = 'nosniff'
+def remove_csp_header(response):
+    if 'Content-Security-Policy' in response.headers:
+        del response.headers['Content-Security-Policy']
     return response
 
 @app.after_request
