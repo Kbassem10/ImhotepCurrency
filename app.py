@@ -88,22 +88,22 @@ def sitemap():
 #     response.headers['X-Frame-Options'] = 'SAMEORIGIN'
 #     return response
 
-@app.after_request
-def remove_csp_header(response):
-    if 'Content-Security-Policy' in response.headers:
-        del response.headers['Content-Security-Policy']
-    return response
+# @app.after_request
+# def remove_csp_header(response):
+#     if 'Content-Security-Policy' in response.headers:
+#         del response.headers['Content-Security-Policy']
+#     return response
 
 # @app.after_request
 # def set_content_type_options(response):
 #     response.headers['X-Content-Type-Options'] = 'nosniff'
 #     return response
 
-@app.after_request
-def add_header(response):
-    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
-    response.headers['X-Content-Type-Options'] = 'nosniff'
-    return response
+# @app.after_request
+# def add_header(response):
+#     response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+#     response.headers['X-Content-Type-Options'] = 'nosniff'
+#     return response
 
 @app.errorhandler(404)
 def page_not_found(error):
