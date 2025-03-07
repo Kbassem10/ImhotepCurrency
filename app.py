@@ -64,24 +64,7 @@ def privacy():
 
 @app.route('/sitemap.xml')
 def sitemap():
-    """Generate a secure sitemap.xml file."""
-    # Use a fixed list of routes instead of automatic discovery
-    # This is more secure and ensures only public routes are included
-    routes = [
-        {"url": "https://imhotepcc.vercel.app/", "date": "2025-03-07"},
-        {"url": "https://imhotepcc.vercel.app/version", "date": "2025-03-07"},
-        {"url": "https://imhotepcc.vercel.app/download", "date": "2025-03-07"},
-        {"url": "https://imhotepcc.vercel.app/terms", "date": "2025-03-07"},
-        {"url": "https://imhotepcc.vercel.app/privacy", "date": "2025-03-07"}
-    ]
-    
-    # Generate the XML using your template file
-    xml_content = render_template('sitemap.xml', routes=routes)
-    
-    # Create a response with proper headers
-    response = make_response(xml_content)
-    response.headers["Content-Type"] = "application/xml"
-    return response
+    return render_template("sitemap.xml")
 
 # @app.after_request
 # def add_header(response):
