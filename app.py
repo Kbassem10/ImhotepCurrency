@@ -64,20 +64,35 @@ def privacy():
 
 @app.route('/sitemap.xml')
 def sitemap():
+    """Generate a secure sitemap.xml file."""
     pages = []
-
-    # Static pages
     ten_days_ago = (datetime.datetime.now() - datetime.timedelta(days=10)).date().isoformat()
+    
+    # Add all GET routes without parameters
     for rule in app.url_map.iter_rules():
         if "GET" in rule.methods and len(rule.arguments) == 0:
-            pages.append(
-                ["https://imhotepcc.vercel.app" + str(rule.rule), ten_days_ago]
-            )
-
-    sitemap_xml = render_template('sitemap_template.xml', pages=pages)
-    response = make_response(sitemap_xml)
+            # Exclude the sitemap.xml route itself to prevent recursion
+            if rule.rule != "/sitemap.xml":
+                pages.append(
+                    ["https://imhotepcc.vercel.app" + str(rule.rule), ten_days_ago]
+                )
+    
+    # Generate the XML directly without using a template that might be compromised
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    for page in pages:
+        xml += '  <url>\n'
+        xml += f'    <loc>{page[0]}</loc>\n'
+        xml += f'    <lastmod>{page[1]}</lastmod>\n'
+        xml += '  </url>\n'
+    
+    xml += '</urlset>'
+    
+    response = make_response(xml)
     response.headers["Content-Type"] = "application/xml"
-
+    # Add security headers
+    response.headers["Content-Security-Policy"] = "default-src 'self'"
     return response
 
 @app.after_request
@@ -85,10 +100,19 @@ def add_header(response):
     response.headers['X-Frame-Options'] = 'SAMEORIGIN'
     return response
 
+# Remove this function - it's disabling a critical security feature
+# @app.after_request
+# def remove_csp_header(response):
+#     if 'Content-Security-Policy' in response.headers:
+#         del response.headers['Content-Security-Policy']
+#     return response
+
+# Instead, add a strong CSP header
 @app.after_request
-def remove_csp_header(response):
-    if 'Content-Security-Policy' in response.headers:
-        del response.headers['Content-Security-Policy']
+def add_security_headers(response):
+    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data:;"
+    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+    response.headers['X-Content-Type-Options'] = 'nosniff'
     return response
 
 @app.after_request
