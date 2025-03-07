@@ -1,4 +1,4 @@
-wsgi.py
+# wsgi.py
 flask_session/
 __pycache__/
 .vscode/
