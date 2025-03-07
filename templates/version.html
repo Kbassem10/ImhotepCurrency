@@ -1,137 +1,276 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='9b6a6904-b6cd-416b-88b1-ba3d981c9fed.ico')}}">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203820067986412"
-        crossorigin="anonymous"></script>
-        <meta name="viewport" content="initial-scale=1, width=device-width">
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <meta charset="utf-8">
-        <title>Version</title>
-        <style>
-        .bg-color{
-            background-color: #D9D9D9;
-            color: #986f07;
-            }
-        #loading-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.8);
-        z-index: 1000;
-        text-align: center;
-        font-size: 30px;
-        /* Center the content */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .loader {
-        border: 16px solid #f3f3f3; /* Light grey */
-        border-radius: 50%;
-        border-top: 16px solid #986f07; /* Blue */
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
-      }
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-        </style>
-    </head>
-    <body class="bg-color">
-        <!-- Loading Screen -->
-        <div id="loading-overlay">
-            <div class="loader"></div>
-            <p>Loading...</p>
-        </div>
-        <div class="left-aligned">
-            <button onclick="history.back()" class="btn-black">Back</button>
-        </div>
-        <h1 class="centered">Imhotep Currency Convertor</h1>
-
-        <h2>Version 3.0</h2>
-        <p>
-            1/2/2025<br>
-            1. Updated the Feature to have teh amount saved.<br>
-            2. Improved the speed.<br>
-        </p>
-
-        <h2>Version 2.3</h2>
-        <p>
-            25/10/2024<br>
-            1. Removed all ads.<br>
-            2. changed the API of the currency to be an unlimited requests.<br>
-            3. updated the footer.<br>
-        </p>
-
-        <h2>Version 2.2</h2>
-        <p>
-            4/8/2024<br>
-            1. Improved Security form cyber attacks.<br>
-            2. Added google ads.
-        </p>
-        <h2>Version 2.1</h2>
-        <p>
-            31/7/2024<br>
-            1. Added loading Screens for smoother UX.<br>
-            2. Added a mac and pc versions on the download from google drive or github.
-        </p>
-        <h2>Version 2.0</h2>
-        <p>
-            21/7/2024<br>
-            1. included to google search.<br>
-            2. improved the UI/UX for mobile phones.<br>
-            3. fixed some bugs.<br>
-            4. added an APK version.<br>
-            5. updated the elements colors for the APK.<br>
-            6. Added the Download on the footer<br>
-            7. added download page.
-        </p>
-        <h2>Version 1.1</h2>
-        <p>
-            20/6/2024<br>
-            1. updated the result to be on a more redable way.<br>
-            2. updated the input way to be more logical for the user.<br>
-            3. improved the search for a currency from a list.
-        </p>
-
-        <h2>Version 1.0.1</h2>
-        <p>
-            10/6/2024<br>
-            1. updated the result box colors to be more easy to see.
-        </p>
-
-        <h2>Version 1.0</h2>
-        <p>
-            9/6/2024<br>
-            Simple Currency Converter App - Get Instant Exchange Rates!<br><br>
-
-Traveling the world or conducting international business? This basic currency converter app provides quick and accurate exchange rates to help you make informed decisions.<br><br>
-
-Features:<br><br>
-
-Effortlessly convert between various currencies.<br>
-User-friendly interface for easy conversions on the go.<br>
-Reliable exchange rates for confident decision-making.<br>
-Note: This app focuses on basic currency conversion functionalities.<br>
-<br>
-Ready to simplify your currency conversions? Order today!
-        </p>
-    </body>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icc.png') }}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203820067986412" crossorigin="anonymous"></script>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Imhotep Currency Calculator - Version History</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="Version history and updates of Imhotep Currency Converter.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-                function showLoadingScreen() {
-            document.getElementById('loading-overlay').style.display = 'flex';
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#986f07',
+                        dark: '#212529',
+                        light: '#f8f9fa'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .spinner {
+                border-top-color: #986f07;
+                animation: spinner 0.6s linear infinite;
+            }
+            @keyframes spinner {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .version-timeline::before {
+                content: '';
+                position: absolute;
+                left: 1.25rem;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background-color: #986f07;
+                opacity: 0.3;
+            }
+            @screen md {
+                .version-timeline::before {
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <!-- Loading Screen -->
+    <div id="loading-overlay" class="fixed inset-0 bg-dark bg-opacity-70 z-50 flex flex-col items-center justify-center hidden">
+        <div class="spinner w-12 h-12 border-4 border-light border-solid rounded-full"></div>
+        <p class="text-white mt-4 text-lg font-medium">Loading...</p>
+    </div>
+
+    <div class="container max-w-4xl mx-auto px-4 py-8">
+        <!-- Back Button -->
+        <div class="mb-4">
+            <button onclick="history.back()" class="bg-dark hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-all flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Back
+            </button>
+        </div>
+
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-dark to-gray-800 text-white p-6 text-center rounded-t-xl shadow-lg">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">Version History</h1>
+            <p class="text-primary text-lg">Imhotep Currency Calculator Updates</p>
+        </div>
+
+        <!-- Logo -->
+        <div class="flex justify-center -mt-8">
+            <div class="rounded-full bg-white p-2 shadow-md">
+                <img src="{{ url_for('static', filename='icc.png') }}" class="h-24 w-24 rounded-full object-cover" alt="Imhotep Currency">
+            </div>
+        </div>
+
+        <!-- Version Timeline -->
+        <div class="bg-white rounded-b-xl shadow-lg p-6 mb-8">
+            <div class="version-timeline relative space-y-8 pt-6">
+
+                <!-- Version 4.0 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="md:order-2 flex-none flex items-start md:w-1/2 md:pl-8">
+                        <div class="bg-primary text-white rounded-lg p-4 shadow-md">
+                            <h2 class="text-xl font-bold mb-1">Version 4.0</h2>
+                            <p class="text-white/80 text-sm">March 7, 2025</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:hidden absolute left-0 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:order-1 md:w-1/2 md:pr-8 ml-6 md:ml-0 md:text-right">
+                        <ul class="list-disc md:list-none space-y-2 text-gray-700 ml-4 md:ml-0">
+                            <li>Change the Whole UI theme</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 3.0 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-none flex items-start md:justify-end md:w-1/2 md:pr-8">
+                        <div class="bg-primary text-white rounded-lg p-4 shadow-md">
+                            <h2 class="text-xl font-bold mb-1">Version 3.0</h2>
+                            <p class="text-white/80 text-sm">January 2, 2025</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:block absolute left-1/2 top-6 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:hidden absolute left-0 top-6 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:w-1/2 md:pl-8 ml-6 md:ml-0">
+                        <ul class="list-disc space-y-2 text-gray-700 ml-4">
+                            <li>Updated the feature to have the amount saved</li>
+                            <li>Improved the conversion speed</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 2.3 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="md:order-2 flex-none flex items-start md:w-1/2 md:pl-8">
+                        <div class="bg-primary text-white rounded-lg p-4 shadow-md">
+                            <h2 class="text-xl font-bold mb-1">Version 2.3</h2>
+                            <p class="text-white/80 text-sm">October 25, 2024</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:hidden absolute left-0 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:order-1 md:w-1/2 md:pr-8 ml-6 md:ml-0 md:text-right">
+                        <ul class="list-disc md:list-none space-y-2 text-gray-700 ml-4 md:ml-0">
+                            <li>Removed all advertisements</li>
+                            <li>Changed the API to support unlimited requests</li>
+                            <li>Updated the footer design and functionality</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 2.2 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-none flex items-start md:justify-end md:w-1/2 md:pr-8">
+                        <div class="bg-primary text-white rounded-lg p-4 shadow-md">
+                            <h2 class="text-xl font-bold mb-1">Version 2.2</h2>
+                            <p class="text-white/80 text-sm">August 4, 2024</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:hidden absolute left-0 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:w-1/2 md:pl-8 ml-6 md:ml-0">
+                        <ul class="list-disc space-y-2 text-gray-700 ml-4">
+                            <li>Improved security against cyber attacks</li>
+                            <li>Added Google ads integration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 2.1 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="md:order-2 flex-none flex items-start md:w-1/2 md:pl-8">
+                        <div class="bg-primary text-white rounded-lg p-4 shadow-md">
+                            <h2 class="text-xl font-bold mb-1">Version 2.1</h2>
+                            <p class="text-white/80 text-sm">July 31, 2024</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:hidden absolute left-0 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:order-1 md:w-1/2 md:pr-8 ml-6 md:ml-0 md:text-right">
+                        <ul class="list-disc md:list-none space-y-2 text-gray-700 ml-4 md:ml-0">
+                            <li>Added loading screens for smoother UX</li>
+                            <li>Added macOS and Windows versions available for download from Google Drive and GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 2.0 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-none flex items-start md:justify-end md:w-1/2 md:pr-8">
+                        <div class="bg-primary text-white rounded-lg p-4 shadow-md">
+                            <h2 class="text-xl font-bold mb-1">Version 2.0</h2>
+                            <p class="text-white/80 text-sm">July 21, 2024</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:hidden absolute left-0 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:w-1/2 md:pl-8 ml-6 md:ml-0">
+                        <ul class="list-disc space-y-2 text-gray-700 ml-4">
+                            <li>Included in Google search results</li>
+                            <li>Improved UI/UX for mobile devices</li>
+                            <li>Fixed various bugs</li>
+                            <li>Added Android APK version</li>
+                            <li>Updated UI colors for the APK</li>
+                            <li>Added Download link in the footer</li>
+                            <li>Added dedicated download page</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 1.1 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="md:order-2 flex-none flex items-start md:w-1/2 md:pl-8">
+                        <div class="bg-primary text-white rounded-lg p-4 shadow-md">
+                            <h2 class="text-xl font-bold mb-1">Version 1.1</h2>
+                            <p class="text-white/80 text-sm">June 20, 2024</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:hidden absolute left-0 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:order-1 md:w-1/2 md:pr-8 ml-6 md:ml-0 md:text-right">
+                        <ul class="list-disc md:list-none space-y-2 text-gray-700 ml-4 md:ml-0">
+                            <li>Updated results display for better readability</li>
+                            <li>Improved input interface for better user experience</li>
+                            <li>Enhanced currency search functionality</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 1.0.1 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-none flex items-start md:justify-end md:w-1/2 md:pr-8">
+                        <div class="bg-primary text-white rounded-lg p-4 shadow-md">
+                            <h2 class="text-xl font-bold mb-1">Version 1.0.1</h2>
+                            <p class="text-white/80 text-sm">June 10, 2024</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:hidden absolute left-0 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:w-1/2 md:pl-8 ml-6 md:ml-0">
+                        <ul class="list-disc space-y-2 text-gray-700 ml-4">
+                            <li>Updated result box colors for improved visibility</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 1.0 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="md:order-2 flex-none flex items-start md:w-1/2 md:pl-8">
+                        <div class="bg-primary text-white rounded-lg p-4 shadow-md">
+                            <h2 class="text-xl font-bold mb-1">Version 1.0</h2>
+                            <p class="text-white/80 text-sm">June 9, 2024</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:hidden absolute left-0 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2"></div>
+                    <div class="md:order-1 md:w-1/2 md:pr-8 ml-6 md:ml-0 md:text-right">
+                        <div class="space-y-2 text-gray-700">
+                            <p>Initial release - Simple Currency Converter App with instant exchange rates</p>
+                            <p class="font-medium mt-2">Key Features:</p>
+                            <ul class="list-disc md:list-none space-y-1 ml-4 md:ml-0">
+                                <li>Effortless conversion between multiple currencies</li>
+                                <li>User-friendly interface for easy on-the-go use</li>
+                                <li>Reliable exchange rates for confident decisions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Loading screen functionality
+        function showLoadingScreen() {
+            document.getElementById('loading-overlay').classList.remove('hidden');
+            document.getElementById('loading-overlay').classList.add('flex');
         }
 
         function hideLoadingScreen() {
-            document.getElementById('loading-overlay').style.display = 'none';
+            document.getElementById('loading-overlay').classList.add('hidden');
+            document.getElementById('loading-overlay').classList.remove('flex');
         }
 
         // Show loading screen on form submission
@@ -142,25 +281,28 @@ Ready to simplify your currency conversions? Order today!
                     showLoadingScreen();
                 });
             });
-        });
 
-        // Handle page load and unload
-        window.addEventListener('load', function() {
-            hideLoadingScreen(); // Ensure loading screen is hidden after initial load
-        });
+            // Handle page load and unload
+            window.addEventListener('load', function() {
+                hideLoadingScreen(); // Ensure loading screen is hidden after initial load
+            });
 
-        window.addEventListener('beforeunload', function() {
-            showLoadingScreen(); // Show loading screen when navigating away
-        });
+            window.addEventListener('beforeunload', function() {
+                showLoadingScreen(); // Show loading screen when navigating away
+            });
 
-        // Show loading screen when navigating back
-        window.addEventListener('pageshow', function(event) {
-            if (event.persisted) {
-                showLoadingScreen();
-                setTimeout(function() {
-                    hideLoadingScreen();
-                }, 100); // Adjust delay if necessary
-            }
+            // Show loading screen when navigating back
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
+                    showLoadingScreen();
+                    setTimeout(function() {
+                        hideLoadingScreen();
+                    }, 100); // Adjust delay if necessary
+                }
+            });
         });
     </script>
+
+    {% include 'footer.html' %}
+</body>
 </html>

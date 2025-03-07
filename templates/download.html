@@ -1,267 +1,256 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='icc.png') }}">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203820067986412"
-        crossorigin="anonymous"></script>
-        <meta name="viewport" content="initial-scale=1, width=device-width">
-        <title>Imhotep Currency Calculator</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <meta name="google-site-verification" content="5VWhaKmsV5Wzrdko3_Si5vVnmNsMDttsJFA04mFxrsE" />
-        <meta name="description" content="Imhotep Currency Converter - Convert currencies with ease.">
-        <meta name="keywords" content="currency, converter, exchange rates, Imhotep Currency Converter">
-    <style>
-        body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.bg-color {
-    background-color: #D9D9D9;
-    color: #986f07;
-}
-
-footer {
-    padding: 20px;
-    background-color: #f1f1f1;
-    text-align: center;
-}
-
-.centered {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.links a {
-    color: #986f07;
-    text-decoration: none;
-    padding: 5px;
-}
-
-.links a:hover {
-    text-decoration: underline;
-}
-
-.ios-instructions,
-.android-instructions {
-    display: none;
-    text-align: center;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    margin-top: 20px;
-}
-
-@media (min-width: 600px) {
-    .links {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-
-img {
-    max-width: 80%;
-    height: auto;
-}
-
-#loading-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.8);
-        z-index: 1000;
-        text-align: center;
-        font-size: 30px;
-        /* Center the content */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .loader {
-        border: 16px solid #f3f3f3; /* Light grey */
-        border-radius: 50%;
-        border-top: 16px solid #986f07; /* Blue */
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
-      }
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icc.png') }}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203820067986412" crossorigin="anonymous"></script>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Imhotep Currency Calculator - Downloads</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="google-site-verification" content="5VWhaKmsV5Wzrdko3_Si5vVnmNsMDttsJFA04mFxrsE" />
+    <meta name="description" content="Download Imhotep Currency Converter for different platforms - Windows, macOS, Android, and iOS.">
+    <meta name="keywords" content="currency converter download, currency app, exchange rates, Imhotep Currency Converter">
+    <link rel="canonical" href="https://imhotepcc.vercel.app/download">
+    <meta property="og:title" content="Download Imhotep Currency Converter">
+    <meta property="og:description" content="Download our currency converter app for various platforms.">
+    <meta property="og:image" content="https://imhotepcc.vercel.app/static/icc.png">
+    <meta property="og:url" content="https://imhotepcc.vercel.app/download">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#986f07',
+                        dark: '#212529',
+                        light: '#f8f9fa'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .spinner {
+                border-top-color: #986f07;
+                animation: spinner 0.6s linear infinite;
+            }
+            @keyframes spinner {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .download-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .download-card:hover {
+                transform: translateY(-5px);
+            }
+            .ios-instructions {
+                animation: fadeIn 0.5s ease-in;
+            }
+            @keyframes fadeIn {
+                0% { opacity: 0; transform: translateY(10px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+        }
     </style>
-    </head>
-    <body>
-        <!-- Loading Screen -->
-        <div id="loading-overlay">
-            <div class="loader"></div>
-            <p>Loading...</p>
-        </div>
-        <div class="left-aligned">
-            <button onclick="history.back()" class="btn-black">Back</button>
-        </div>
-        <div style="text-align:center ;">
-            <h1>Windows Download</h1>
-            <a href="https://github.com/Kbassem10/ImhotepCurrency/releases/download/Imhotep_Currency_Convertor/Imhotep-Currency-Convertor-Windows.exe" style="color: #986f07;" onclick="startDownload()">
-                <img src="{{ url_for('static', filename='windows.png') }}" style="height: 100px;" alt="Windows Download Link">
-            </a>
-            <br><br>
-            <h1>MacOS Download</h1>
-            <a href="https://github.com/Kbassem10/ImhotepCurrency/releases/download/Imhotep_Currency_Convertor/Imhotep-Currency-Convertor-MacOS.dmg" style="color: #986f07;" onclick="startDownload()">
-                <img src="{{ url_for('static', filename='macos.webp') }}" style="height: 100px;" alt="MacOS Download Link">
-            </a>
-            <br><br>
-            <h1>Android Download</h1>
-            <a href="https://www.amazon.com/dp/B0D9SX43Q4/ref=apps_sf_sta" style="color: #986f07;">
-                <img src="{{ url_for('static', filename='amazon.png') }}" height="50" width="auto" alt="Android Amazon Download">
-            </a>
+</head>
 
-            <br>
-            
-            <br>
-            <h1>IOS Steps To Download</h1>
-            <a id="iosInstall" href="#" style="color: #986f07;">
-                <img src="{{ url_for('static', filename='ios.jpg') }}" height="70" width="auto" alt="Add to Home Screen on iOS">
-            </a>
-        <div class="ios-instructions" id="iosInstructions">
-            <p>To add this app to your home screen on iOS:</p>
-            <ol>
-                <li>Tap the Share button at the bottom of the Safari browser.</li>
-                <li>Select "Add to Home Screen" from the options.</li>
-            </ol>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Loading Screen -->
+    <div id="loading-overlay" class="fixed inset-0 bg-dark bg-opacity-70 z-50 flex flex-col items-center justify-center hidden">
+        <div class="spinner w-12 h-12 border-4 border-light border-solid rounded-full"></div>
+        <p class="text-white mt-4 text-lg font-medium">Loading...</p>
+    </div>
+
+    <div class="container max-w-4xl mx-auto px-4 py-8">
+        <!-- Back Button -->
+        <div class="mb-4">
+            <button onclick="history.back()" class="bg-dark hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-all flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Back
+            </button>
+        </div>
+
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-dark to-gray-800 text-white p-6 text-center rounded-t-xl shadow-lg">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">Download Imhotep Currency Calculator</h1>
+            <p class="text-primary text-lg">Available for multiple platforms</p>
+        </div>
+
+        <!-- Logo -->
+        <div class="flex justify-center -mt-8">
+            <div class="rounded-full bg-white p-2 shadow-md">
+                <img src="{{ url_for('static', filename='icc.png') }}" class="h-24 w-24 rounded-full object-cover" alt="Imhotep Currency">
+            </div>
+        </div>
+
+        <!-- Download Options -->
+        <div class="bg-white rounded-b-xl shadow-lg p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <!-- Windows Download -->
+                <div class="download-card bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg flex flex-col items-center">
+                    <h2 class="text-2xl font-bold text-dark mb-4">Windows</h2>
+                    <img src="{{ url_for('static', filename='windows.png') }}" class="h-24 w-auto mb-6" alt="Windows Logo">
+                    <a href="https://github.com/Kbassem10/ImhotepCurrency/releases/download/Imhotep_Currency_Convertor/Imhotep-Currency-Convertor-Windows.exe" 
+                       onclick="startDownload()" 
+                       class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center">
+                        <i class="fas fa-download mr-2"></i> Download for Windows
+                    </a>
+                </div>
+
+                <!-- macOS Download -->
+                <div class="download-card bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg flex flex-col items-center">
+                    <h2 class="text-2xl font-bold text-dark mb-4">macOS</h2>
+                    <img src="{{ url_for('static', filename='macos.webp') }}" class="h-24 w-auto mb-6" alt="macOS Logo">
+                    <a href="https://github.com/Kbassem10/ImhotepCurrency/releases/download/Imhotep_Currency_Convertor/Imhotep-Currency-Convertor-MacOS.dmg" 
+                       onclick="startDownload()" 
+                       class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center">
+                        <i class="fas fa-download mr-2"></i> Download for macOS
+                    </a>
+                </div>
+
+                <!-- Android Download -->
+                <div class="download-card bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg flex flex-col items-center">
+                    <h2 class="text-2xl font-bold text-dark mb-4">Android</h2>
+                    <img src="{{ url_for('static', filename='amazon.png') }}" class="h-16 w-auto mb-6" alt="Android Logo">
+                    <a href="https://www.amazon.com/dp/B0D9SX43Q4/ref=apps_sf_sta" 
+                       class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center">
+                        <i class="fab fa-amazon mr-2"></i> Get on Amazon
+                    </a>
+                </div>
+
+                <!-- iOS Instructions -->
+                <div class="download-card bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg flex flex-col items-center">
+                    <h2 class="text-2xl font-bold text-dark mb-4">iOS</h2>
+                    <img src="{{ url_for('static', filename='ios.jpg') }}" class="h-16 w-auto mb-6" alt="iOS Logo">
+                    <button id="iosInstall" 
+                       class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center">
+                        <i class="fab fa-apple mr-2"></i> Add to Home Screen
+                    </button>
+
+                    <!-- iOS Instructions Panel -->
+                    <div id="iosInstructions" class="ios-instructions hidden mt-4 bg-gray-100 p-4 rounded-lg w-full">
+                        <h3 class="font-bold text-lg mb-2">To add this app to your home screen:</h3>
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li>Tap the Share button <i class="fas fa-share-alt text-primary"></i> at the bottom of Safari</li>
+                            <li>Scroll down and tap "Add to Home Screen"</li>
+                            <li>Name the app and tap "Add"</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-dark mb-4 text-center">Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="flex flex-col items-center">
+                    <div class="bg-primary/10 rounded-full p-3 w-12 h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-primary text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-dark mb-2">Fast Conversion</h3>
+                    <p class="text-gray-600 text-center">Get real-time currency rates instantly</p>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <div class="bg-primary/10 rounded-full p-3 w-12 h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-laptop text-primary text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-dark mb-2">Cross Platform</h3>
+                    <p class="text-gray-600 text-center">Available on all major desktop and mobile platforms</p>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <div class="bg-primary/10 rounded-full p-3 w-12 h-12 flex items-center justify-center mb-4">
+                        <i class="fas fa-sync-alt text-primary text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-dark mb-2">Regular Updates</h3>
+                    <p class="text-gray-600 text-center">Constantly improving with new features</p>
+                </div>
+            </div>
         </div>
     </div>
-    </body>
+
     <script>
-    
         // Function to show iOS install instructions
-        function showIOSInstallInstructions() {
-            document.getElementById('iosInstall').addEventListener('click', (e) => {
-                e.preventDefault();
-                document.getElementById('iosInstructions').style.display = 'block';
-            });
-        }
-
-        showIOSInstallInstructions();
-        function showLoadingScreen() {
-            document.getElementById('loading-overlay').style.display = 'flex';
-        }
-
-        function hideLoadingScreen() {
-            document.getElementById('loading-overlay').style.display = 'none';
-        }
-
-        // Show loading screen on form submission
         document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('iosInstall').addEventListener('click', function(e) {
+                e.preventDefault();
+                const instructions = document.getElementById('iosInstructions');
+                instructions.classList.toggle('hidden');
+            });
+
+            // Loading screen functionality
+            function showLoadingScreen() {
+                document.getElementById('loading-overlay').classList.remove('hidden');
+                document.getElementById('loading-overlay').classList.add('flex');
+            }
+
+            function hideLoadingScreen() {
+                document.getElementById('loading-overlay').classList.add('hidden');
+                document.getElementById('loading-overlay').classList.remove('flex');
+            }
+
+            // Show loading screen on form submission
             const forms = document.querySelectorAll('form');
             forms.forEach(form => {
                 form.addEventListener('submit', function() {
                     showLoadingScreen();
                 });
             });
-        });
 
-        // Handle page load and unload
-        window.addEventListener('load', function() {
-            hideLoadingScreen(); // Ensure loading screen is hidden after initial load
-        });
+            // Handle page load and unload
+            window.addEventListener('load', function() {
+                hideLoadingScreen(); // Ensure loading screen is hidden after initial load
+            });
 
-        window.addEventListener('beforeunload', function() {
-            showLoadingScreen(); // Show loading screen when navigating away
-        });
+            window.addEventListener('beforeunload', function() {
+                showLoadingScreen(); // Show loading screen when navigating away
+            });
 
-        // Show loading screen when navigating back
-        window.addEventListener('pageshow', function(event) {
-            if (event.persisted) {
-                showLoadingScreen();
-                setTimeout(function() {
-                    hideLoadingScreen();
-                }, 100); // Adjust delay if necessary
-            }
+            // Show loading screen when navigating back
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
+                    showLoadingScreen();
+                    setTimeout(function() {
+                        hideLoadingScreen();
+                    }, 100); // Adjust delay if necessary
+                }
+            });
         });
 
         function startDownload() {
-        showLoadingScreen();
-        setTimeout(hideLoadingScreen, 2000); // Adjust the delay (in milliseconds) if necessary
-    }
-
-    function showLoadingScreen() {
-        document.getElementById('loading-overlay').style.display = 'flex';
-    }
-
-    function hideLoadingScreen() {
-        document.getElementById('loading-overlay').style.display = 'none';
-    }
-
-    // Show loading screen on form submission
-    document.addEventListener('DOMContentLoaded', function() {
-        const forms = document.querySelectorAll('form');
-        forms.forEach(form => {
-            form.addEventListener('submit', function() {
-                showLoadingScreen();
-            });
-        });
-    });
-
-    // Handle page load and unload
-    window.addEventListener('load', function() {
-        hideLoadingScreen(); // Ensure loading screen is hidden after initial load
-    });
-
-    window.addEventListener('beforeunload', function() {
-        showLoadingScreen(); // Show loading screen when navigating away
-    });
-
-    // Show loading screen when navigating back
-    window.addEventListener('pageshow', function(event) {
-        if (event.persisted) {
-            showLoadingScreen();
+            document.getElementById('loading-overlay').classList.remove('hidden');
+            document.getElementById('loading-overlay').classList.add('flex');
+            
             setTimeout(function() {
-                hideLoadingScreen();
-            }, 100); // Adjust delay if necessary
+                document.getElementById('loading-overlay').classList.add('hidden');
+                document.getElementById('loading-overlay').classList.remove('flex');
+            }, 2000); // Show loading for 2 seconds for download visualization
         }
-    });
 
-    window.addEventListener('online', updateOnlineStatus);
-    window.addEventListener('offline', updateOnlineStatus);
+        // Handle online/offline status
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
 
-    function updateOnlineStatus() {
-        if (!navigator.onLine) {
-            document.body.innerHTML = '<h1>You are offline</h1><p>Database connection is unavailable. Please check your internet connection.</p>';
-        } else {
-            location.reload();  // Reload when back online
+        function updateOnlineStatus() {
+            if (!navigator.onLine) {
+                document.body.innerHTML = `
+                <div class="fixed inset-0 bg-dark bg-opacity-70 z-50 flex flex-col items-center justify-center">
+                    <div class="bg-white p-8 rounded-xl max-w-md text-center">
+                        <i class="fas fa-wifi text-red-500 text-5xl mb-4"></i>
+                        <h1 class="text-2xl font-bold mb-2">You are offline</h1>
+                        <p class="text-gray-600">Internet connection is unavailable. Please check your connection and try again.</p>
+                    </div>
+                </div>`;
+            } else {
+                location.reload();  // Reload when back online
+            }
         }
-    }
-    
-    // Check localStorage for user preference
-    if (localStorage.getItem('dark-mode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-    }
-
-    // Toggle dark mode on button click
-    toggleDarkMode.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        // Save user preference in localStorage
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('dark-mode', 'enabled');
-        } else {
-            localStorage.setItem('dark-mode', 'disabled');
-        }
-    });
     </script>
-{% include 'footer.html' %}
+    {% include 'footer.html' %}
+</body>
 </html>

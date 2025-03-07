@@ -1,62 +1,115 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='icc.png') }}">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203820067986412"
-        crossorigin="anonymous"></script>
-        <meta name="viewport" content="initial-scale=1, width=device-width">
-        <title>Imhotep Currency Calculator</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <meta name="google-site-verification" content="5VWhaKmsV5Wzrdko3_Si5vVnmNsMDttsJFA04mFxrsE" />
-        <meta name="description" content="Imhotep Currency Converter - Convert currencies with ease.">
-        <meta name="keywords" content="currency, converter, exchange rates, Imhotep Currency Converter">
-        <link rel="canonical" href="https://imhotepcc.vercel.app/">
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icc.png') }}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203820067986412" crossorigin="anonymous"></script>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Imhotep Currency Calculator - Error</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="google-site-verification" content="5VWhaKmsV5Wzrdko3_Si5vVnmNsMDttsJFA04mFxrsE" />
+    <meta name="description" content="Imhotep Currency Converter - Convert currencies with ease.">
+    <meta name="keywords" content="currency, converter, exchange rates, Imhotep Currency Converter">
+    <link rel="canonical" href="https://imhotepcc.vercel.app/">
+    <meta property="og:title" content="Imhotep Currency Converter">
+    <meta property="og:description" content="Convert currencies with ease.">
+    <meta property="og:image" content="https://imhotepcc.vercel.app/static/icc.png">
+    <meta property="og:url" content="https://imhotepcc.vercel.app/">
+    <meta name="twitter:card" content="https://imhotepcc.vercel.app/static/icc.png">
+    <meta name="twitter:title" content="Imhotep Currency Converter">
+    <meta name="twitter:description" content="Convert currencies with ease.">
+    <meta name="twitter:image" content="https://imhotepcc.vercel.app/static/icc.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#986f07',
+                        dark: '#212529',
+                        light: '#f8f9fa'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .animate-float {
+                animation: float 3s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-20px); }
+                100% { transform: translateY(0px); }
+            }
+            .animate-pulse-slow {
+                animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+            @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.7; }
+            }
+        }
+    </style>
+</head>
 
-        <meta property="og:title" content="Imhotep Currency Converter">
-        <meta property="og:description" content="Convert currencies with ease.">
-        <meta property="og:image" content="https://imhotepcc.vercel.app/static/icc.jpeg">
-        <meta property="og:url" content="https://imhotepcc.vercel.app/">
+<body class="bg-gray-100 min-h-screen">
+    <div class="container max-w-4xl mx-auto px-4 py-12 flex flex-col items-center justify-center min-h-screen">
+        <!-- Error Content -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-2xl">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-dark to-gray-800 text-white p-6 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2">Oops! Something went wrong</h1>
+                <p class="text-primary text-lg">Error {{ error_code }}</p>
+            </div>
+            
+            <!-- Error Icon -->
+            <div class="flex justify-center -mt-8">
+                <div class="rounded-full bg-white p-4 shadow-md">
+                    <div class="h-24 w-24 rounded-full bg-red-50 flex items-center justify-center animate-pulse-slow">
+                        <i class="fas fa-exclamation-triangle text-red-500 text-4xl"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Error Details -->
+            <div class="p-8 text-center">
+                <div class="animate-float mb-6">
+                    <img src="{{ url_for('static', filename='icc.png') }}" alt="Imhotep Logo" class="h-32 w-auto mx-auto">
+                </div>
+                
+                <h2 class="text-2xl font-bold text-dark mb-4">{{ error_description }}</h2>
+                
+                <p class="text-gray-600 mb-8">
+                    Don't worry, you can return to the homepage and continue your currency conversion.
+                </p>
+                
+                <div class="flex justify-center space-x-4">
+                    <a href="/" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-10 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 flex items-center">
+                        <i class="fas fa-home mr-2"></i> Back to Home
+                    </a>
+                    
+                    <button onclick="history.back()" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-10 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 flex items-center">
+                        <i class="fas fa-arrow-left mr-2"></i> Go Back
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Additional Help -->
+        <div class="mt-6 text-center text-gray-500">
+            <p>If the problem persists, please <a href="mailto:imhoteptech@outlook.com" class="text-primary hover:underline">contact our support team</a></p>
+        </div>
+    </div>
     
-        <meta name="twitter:card" content="https://imhotepcc.vercel.app/static/icc.jpeg">
-        <meta name="twitter:title" content="Imhotep Currency Converter">
-        <meta name="twitter:description" content="Convert currencies with ease.">
-        <meta name="twitter:image" content="https://imhotepcc.vercel.app/static/icc.jpeg">
-    
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-YOUR_TRACKING_ID"></script>   
-    
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-    
-            gtag('config', 'UA-YOUR_TRACKING_ID');   
-    
-        </script>
-
-    </head>
-<body>
-    <div class="grid h-screen place-content-center bg-white px-4 dark:bg-gray-900">
-  <div class="text-center">
-    <h1 class="text-9xl font-black text-gray-200 dark:text-gray-700">{{error_code}}</h1>
-
-    <p class="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
-      Uh-oh!
-    </p>
-
-    <p class="mt-4 text-gray-500 dark:text-gray-400">{{ error_description }}</p>
-
-    <a
-      href="/"
-      class="mt-6 inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring"
-    >
-      Go Back Home
-    </a>
-  </div>
-</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any JavaScript functionality here
+            console.log('Error page loaded');
+        });
+    </script>
 </body>
 </html>

@@ -1,93 +1,158 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='9b6a6904-b6cd-416b-88b1-ba3d981c9fed.ico')}}">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203820067986412"
-        crossorigin="anonymous"></script>
-        <meta name="viewport" content="initial-scale=1, width=device-width">
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <meta charset="utf-8">
-        <title>Terms and Conditions</title>
-        <style>
-        .bg-color{
-            background-color: #D9D9D9;
-            color: #986f07;
-            }
-        #loading-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.8);
-        z-index: 1000;
-        text-align: center;
-        font-size: 30px;
-        /* Center the content */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .loader {
-        border: 16px solid #f3f3f3; /* Light grey */
-        border-radius: 50%;
-        border-top: 16px solid #986f07; /* Blue */
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
-      }
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-        </style>
-    </head>
-    <body class="bg-color">
-        <!-- Loading Screen -->
-        <div id="loading-overlay">
-            <div class="loader"></div>
-            <p>Loading...</p>
-        </div>
-        <div class="left-aligned">
-            <button onclick="history.back()" class="btn-black">Back</button>
-        </div>
-        <h1 class="centered">Terms and Conditions</h1>
-
-        <h2>Introduction</h2>
-        <p>
-            These Terms and Conditions govern your use of our website and services. By accessing or using our website, you agree to be bound by these Terms and Conditions.
-        </p>
-
-        <h2>Use of the Website</h2>
-        <p>
-            You agree to use the website only for lawful purposes and in a way that does not infringe the rights of others or restrict their use of the website.
-        </p>
-
-        <h2>Intellectual Property</h2>
-        <p>
-            All content on this website, including text, graphics, logos, and images, is the property of Imhotep Tech and is protected by copyright laws.
-        </p>
-
-        <h2>Limitation of Liability</h2>
-        <p>
-            Imhotep Tech will not be liable for any damages arising from the use of this website or the inability to use the website.
-        </p>
-
-        <h2>Changes to Terms and Conditions</h2>
-        <p>
-            We reserve the right to update these Terms and Conditions at any time. Your continued use of the website constitutes acceptance of the updated Terms and Conditions.
-        </p>
-    </body>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icc.png') }}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203820067986412" crossorigin="anonymous"></script>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Imhotep Currency Calculator - Terms & Conditions</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="Terms and conditions for using Imhotep Currency Converter app and website.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#986f07',
+                        dark: '#212529',
+                        light: '#f8f9fa'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .spinner {
+                border-top-color: #986f07;
+                animation: spinner 0.6s linear infinite;
+            }
+            @keyframes spinner {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .terms-section {
+                animation: fadeIn 0.5s ease-in;
+            }
+            @keyframes fadeIn {
+                0% { opacity: 0; transform: translateY(10px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <!-- Loading Screen -->
+    <div id="loading-overlay" class="fixed inset-0 bg-dark bg-opacity-70 z-50 flex flex-col items-center justify-center hidden">
+        <div class="spinner w-12 h-12 border-4 border-light border-solid rounded-full"></div>
+        <p class="text-white mt-4 text-lg font-medium">Loading...</p>
+    </div>
+
+    <div class="container max-w-4xl mx-auto px-4 py-8">
+        <!-- Back Button -->
+        <div class="mb-4">
+            <button onclick="history.back()" class="bg-dark hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-all flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Back
+            </button>
+        </div>
+
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-dark to-gray-800 text-white p-6 text-center rounded-t-xl shadow-lg">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">Terms & Conditions</h1>
+            <p class="text-primary text-lg">Imhotep Currency Calculator</p>
+        </div>
+
+        <!-- Logo -->
+        <div class="flex justify-center -mt-8">
+            <div class="rounded-full bg-white p-2 shadow-md">
+                <img src="{{ url_for('static', filename='icc.png') }}" class="h-24 w-24 rounded-full object-cover" alt="Imhotep Currency">
+            </div>
+        </div>
+
+        <!-- Terms and Conditions Content -->
+        <div class="bg-white rounded-b-xl shadow-lg p-6 mb-8">
+            <div class="space-y-6">
+                <!-- Introduction -->
+                <div class="terms-section">
+                    <h2 class="text-2xl font-bold text-dark border-b border-gray-200 pb-2 mb-4">Introduction</h2>
+                    <p class="text-gray-700">
+                        These Terms and Conditions govern your use of our website and services. By accessing or using our website, you agree to be bound by these Terms and Conditions.
+                    </p>
+                </div>
+
+                <!-- Use of the Website -->
+                <div class="terms-section">
+                    <h2 class="text-2xl font-bold text-dark border-b border-gray-200 pb-2 mb-4">Use of the Website</h2>
+                    <p class="text-gray-700">
+                        You agree to use the website only for lawful purposes and in a way that does not infringe the rights of others or restrict their use of the website.
+                    </p>
+                </div>
+
+                <!-- Intellectual Property -->
+                <div class="terms-section">
+                    <h2 class="text-2xl font-bold text-dark border-b border-gray-200 pb-2 mb-4">Intellectual Property</h2>
+                    <p class="text-gray-700">
+                        All content on this website, including text, graphics, logos, and images, is the property of Imhotep Tech and is protected by copyright laws.
+                    </p>
+                </div>
+
+                <!-- Limitation of Liability -->
+                <div class="terms-section">
+                    <h2 class="text-2xl font-bold text-dark border-b border-gray-200 pb-2 mb-4">Limitation of Liability</h2>
+                    <p class="text-gray-700">
+                        Imhotep Tech will not be liable for any damages arising from the use of this website or the inability to use the website.
+                    </p>
+                </div>
+
+                <!-- Changes to Terms and Conditions -->
+                <div class="terms-section">
+                    <h2 class="text-2xl font-bold text-dark border-b border-gray-200 pb-2 mb-4">Changes to Terms and Conditions</h2>
+                    <p class="text-gray-700">
+                        We reserve the right to update these Terms and Conditions at any time. Your continued use of the website constitutes acceptance of the updated Terms and Conditions.
+                    </p>
+                </div>
+
+                <!-- User Responsibilities -->
+                <div class="terms-section">
+                    <h2 class="text-2xl font-bold text-dark border-b border-gray-200 pb-2 mb-4">User Responsibilities</h2>
+                    <p class="text-gray-700">
+                        Users are responsible for ensuring that their use of the currency converter complies with local laws and regulations. Users should verify any critical currency conversions through official banking channels.
+                    </p>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="terms-section mt-8 bg-gray-50 p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold text-dark mb-4">Questions About Our Terms</h2>
+                    <p class="text-gray-700 mb-4">
+                        If you have any questions about these Terms and Conditions, please contact us at:
+                    </p>
+                    <a href="mailto:imhoteptech@outlook.com" class="text-primary hover:text-primary/70 transition-colors flex items-center">
+                        <i class="fas fa-envelope mr-2"></i> imhoteptech@outlook.com
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Last Updated -->
+        <div class="text-center text-gray-500 text-sm mb-8">
+            <p>Last updated: March 7, 2025</p>
+        </div>
+    </div>
+
+    <script>
+        // Loading screen functionality
         function showLoadingScreen() {
-            document.getElementById('loading-overlay').style.display = 'flex';
+            document.getElementById('loading-overlay').classList.remove('hidden');
+            document.getElementById('loading-overlay').classList.add('flex');
         }
 
         function hideLoadingScreen() {
-            document.getElementById('loading-overlay').style.display = 'none';
+            document.getElementById('loading-overlay').classList.add('hidden');
+            document.getElementById('loading-overlay').classList.remove('flex');
         }
 
         // Show loading screen on form submission
@@ -98,25 +163,28 @@
                     showLoadingScreen();
                 });
             });
-        });
 
-        // Handle page load and unload
-        window.addEventListener('load', function() {
-            hideLoadingScreen(); // Ensure loading screen is hidden after initial load
-        });
+            // Handle page load and unload
+            window.addEventListener('load', function() {
+                hideLoadingScreen(); // Ensure loading screen is hidden after initial load
+            });
 
-        window.addEventListener('beforeunload', function() {
-            showLoadingScreen(); // Show loading screen when navigating away
-        });
+            window.addEventListener('beforeunload', function() {
+                showLoadingScreen(); // Show loading screen when navigating away
+            });
 
-        // Show loading screen when navigating back
-        window.addEventListener('pageshow', function(event) {
-            if (event.persisted) {
-                showLoadingScreen();
-                setTimeout(function() {
-                    hideLoadingScreen();
-                }, 100); // Adjust delay if necessary
-            }
+            // Show loading screen when navigating back
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
+                    showLoadingScreen();
+                    setTimeout(function() {
+                        hideLoadingScreen();
+                    }, 100); // Adjust delay if necessary
+                }
+            });
         });
     </script>
+
+    {% include 'footer.html' %}
+</body>
 </html>
