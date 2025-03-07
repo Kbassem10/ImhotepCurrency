@@ -498,11 +498,7 @@
                             <div class="flex justify-center items-center">
                                 <i class="fas fa-equals mr-3 text-xl"></i>
                                 <h2 class="text-2xl font-bold">
-                                    {% if res != "Result will appear here..." %}
-                                        {{ "%.2f"|format(res|float) }}
-                                    {% else %}
-                                        {{ res }}
-                                    {% endif %}
+                                    {{ res }}
                                 </h2>
                             </div>
                         </div>
