@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for route in routes %}
     <url>
-        <loc>https://imhotepcc.vercel.app/</loc>
-        <lastmod>2025-3-7</lastmod>
+        <loc>{{ route.url }}</loc>
+        <lastmod>{{ route.date }}</lastmod>
     </url>
-    <url>
-        <loc>https://imhotepcc.vercel.app/version</loc>
-        <lastmod>2025-3-7</lastmod>
-    </url>
-    <url>
-        <loc>https://imhotepcc.vercel.app/download</loc>
-        <lastmod>2025-3-7</lastmod>
-    </url>
-    <url>
-        <loc>https://imhotepcc.vercel.app/terms</loc>
-        <lastmod>2025-3-7</lastmod>
-    </url>
-    <url>
-        <loc>https://imhotepcc.vercel.app/privacy</loc>
-        <lastmod>2025-3-7</lastmod>
-    </url>
+    {% endfor %}
 </urlset>
