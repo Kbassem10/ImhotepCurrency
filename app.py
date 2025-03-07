@@ -65,40 +65,28 @@ def privacy():
 @app.route('/sitemap.xml')
 def sitemap():
     """Generate a secure sitemap.xml file."""
-    pages = []
-    ten_days_ago = (datetime.datetime.now() - datetime.timedelta(days=10)).date().isoformat()
+    # Use a fixed list of routes instead of automatic discovery
+    # This is more secure and ensures only public routes are included
+    routes = [
+        {"url": "https://imhotepcc.vercel.app/", "date": "2025-03-07"},
+        {"url": "https://imhotepcc.vercel.app/version", "date": "2025-03-07"},
+        {"url": "https://imhotepcc.vercel.app/download", "date": "2025-03-07"},
+        {"url": "https://imhotepcc.vercel.app/terms", "date": "2025-03-07"},
+        {"url": "https://imhotepcc.vercel.app/privacy", "date": "2025-03-07"}
+    ]
     
-    # Add all GET routes without parameters
-    for rule in app.url_map.iter_rules():
-        if "GET" in rule.methods and len(rule.arguments) == 0:
-            # Exclude the sitemap.xml route itself to prevent recursion
-            if rule.rule != "/sitemap.xml":
-                pages.append(
-                    ["https://imhotepcc.vercel.app" + str(rule.rule), ten_days_ago]
-                )
+    # Generate the XML using your template file
+    xml_content = render_template('sitemap.xml', routes=routes)
     
-    # Generate the XML directly without using a template that might be compromised
-    xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    
-    for page in pages:
-        xml += '  <url>\n'
-        xml += f'    <loc>{page[0]}</loc>\n'
-        xml += f'    <lastmod>{page[1]}</lastmod>\n'
-        xml += '  </url>\n'
-    
-    xml += '</urlset>'
-    
-    response = make_response(xml)
+    # Create a response with proper headers
+    response = make_response(xml_content)
     response.headers["Content-Type"] = "application/xml"
-    # Add security headers
-    response.headers["Content-Security-Policy"] = "default-src 'self'"
     return response
 
-@app.after_request
-def add_header(response):
-    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
-    return response
+# @app.after_request
+# def add_header(response):
+#     response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+#     return response
 
 @app.after_request
 def remove_csp_header(response):
@@ -106,10 +94,10 @@ def remove_csp_header(response):
         del response.headers['Content-Security-Policy']
     return response
 
-@app.after_request
-def set_content_type_options(response):
-    response.headers['X-Content-Type-Options'] = 'nosniff'
-    return response
+# @app.after_request
+# def set_content_type_options(response):
+#     response.headers['X-Content-Type-Options'] = 'nosniff'
+#     return response
 
 @app.after_request
 def add_header(response):
