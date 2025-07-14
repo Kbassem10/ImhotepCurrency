@@ -4,7 +4,7 @@ import '../App.css'
 export default function Header() {
 
   return (
-    <>
+    <header className="app-header">
       <div>
         <a href="https://imhotepcc.vercel.app/" target="_blank">
           <img src={imhotepCCLogo} className="logo react" alt="Imhotep Currency logo" />
@@ -14,7 +14,7 @@ export default function Header() {
       <p className="read-the-docs text-lg sm:text-xl mb-8">
         Fast, reliable currency conversion
       </p>
-    </>
+    </header>
   )
 }
 
