@@ -13,9 +13,6 @@
   border-bottom: 1px solid #333;
   padding: 1rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 
 @media (max-width: 768px) {
@@ -55,12 +52,6 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(1) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
   padding: 2em;
 }
@@ -74,5 +65,121 @@
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border-bottom: 1px solid #dee2e6;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Footer Styles */
+.app-footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-top: 1px solid #333;
+  padding: 3rem 0 1rem;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #646cff, transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-logo-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  height: 3rem;
+  width: auto;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.footer-copyright {
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-link {
+  color: #888;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.footer-link:hover {
+  color: #646cff;
+  background: rgba(100, 108, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.social-link {
+  color: #888;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.social-link:hover {
+  color: #646cff;
+  background: rgba(100, 108, 255, 0.2);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(100, 108, 255, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 0 1rem;
+  }
+  
+  .footer-social {
+    gap: 1rem;
+  }
+  
+  .social-link {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
   }
 }

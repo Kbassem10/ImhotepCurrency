@@ -2,6 +2,7 @@ import { useState } from 'react'
 import imhotepCCLogo from "./assets/icc.png"
 import './App.css'
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,9 @@ function App() {
           Click on the Vite and React logos to learn more
         </p>
       </main>
+      <footer className="app-footer">
+        <Footer />
+      </footer>
     </>
   )
 }
