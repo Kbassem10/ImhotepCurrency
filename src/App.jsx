@@ -1,20 +1,15 @@
-import { useState } from 'react'
 import './App.css'
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
 
   return (
     <>
         <Header />
-      <main className="app-main">
-        
-      </main>
+        <CurrencyForm />
         <Footer />
     </>
   )
 }
 
-export default App
