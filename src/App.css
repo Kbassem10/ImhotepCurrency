@@ -1,5 +1,4 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -181,5 +180,205 @@
     width: 2.5rem;
     height: 2.5rem;
     font-size: 1.2rem;
+  }
+}
+
+/* Currency Form Styles */
+.currency-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(45, 45, 45, 0.8) 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.amount-section {
+  margin-bottom: 2rem;
+}
+
+.amount-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.87);
+  transition: all 0.3s ease;
+  text-align: center;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: #646cff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.amount-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.currency-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.currency-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.currency-section:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.currency-search {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.87);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.currency-search:focus {
+  outline: none;
+  border-color: #646cff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.2);
+}
+
+.currency-search::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.currency-select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.87);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.currency-select:focus {
+  outline: none;
+  border-color: #646cff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.2);
+}
+
+.currency-select option {
+  background: #1a1a1a;
+  color: rgba(255, 255, 255, 0.87);
+  padding: 0.5rem;
+}
+
+.convert-button {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #646cff 0%, #535bf2 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-sizing: border-box;
+}
+
+.convert-button:hover {
+  background: linear-gradient(135deg, #535bf2 0%, #646cff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(100, 108, 255, 0.4);
+}
+
+.convert-button:active {
+  transform: translateY(0);
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .currency-form {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .currency-sections {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .amount-input {
+    font-size: 1.3rem;
+    padding: 0.8rem 1rem;
+  }
+  
+  .currency-section {
+    padding: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1rem;
+  }
+  
+  .convert-button {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .currency-form {
+    padding: 1rem;
+  }
+  
+  .amount-input {
+    font-size: 1.2rem;
+    padding: 0.7rem 1rem;
+  }
+  
+  .currency-search,
+  .currency-select {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .convert-button {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
   }
 }
