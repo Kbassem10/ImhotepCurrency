@@ -3,6 +3,7 @@ import currencies from '../data/currencies.js';
 import Result from './Result.jsx';
 
 export default function CurrencyForm() {
+    // initialize the main states
     const [fromSearch, setFromSearch] = useState('')
     const [toSearch, setToSearch] = useState('')
     const [resultObj, setResultObj] = useState({})
@@ -12,6 +13,7 @@ export default function CurrencyForm() {
     const [initialCurrency, setInitialCurrency] = useState("USD")
     const [targetCurrency, setTargetCurrency] = useState("EUR")
 
+    // create the filter to make the filter on the select menu
     const filteredFromCurrencies = currencies.filter(currency =>
         currency.toLowerCase().includes(fromSearch.toLowerCase())
     )
@@ -20,7 +22,7 @@ export default function CurrencyForm() {
         currency.toLowerCase().includes(toSearch.toLowerCase())
     )
 
-    // Update selected currency when search filters change and current selection is not in filtered list
+    // useEffect to change the select menu based on the input when it changes
     useEffect(() => {
         if (fromSearch && filteredFromCurrencies.length > 0 && !filteredFromCurrencies.includes(initialCurrency)) {
             setInitialCurrency(filteredFromCurrencies[0])
@@ -33,9 +35,12 @@ export default function CurrencyForm() {
         }
     }, [toSearch, filteredToCurrencies, targetCurrency])
 
+
+    // a function to happens when the form is submitted
     const handleSubmit = async (e) => {
         e.preventDefault();
         
+        // check the inputs
         if (!amount || amount <= 0) {
             setError('Please enter a valid amount')
             return
@@ -48,28 +53,36 @@ export default function CurrencyForm() {
         
         try {
             setError('');
+
+            // get the api key from the .env file
             const API_KEY = import.meta.env.VITE_EXCHANGE_API_KEY_PRIMARY
             
+            // if the api key is not working then shows the error
             if (!API_KEY) {
                 setError('API key is not configured. Please check your environment variables.')
                 return
             }
             
+            // fetch the response of the API key
             const response = await fetch(
                 `/api/convert/latest_rates/${API_KEY}/${initialCurrency}/${targetCurrency}/${amount}`
             );
             
+            // if the response isn't working then throw and error
             if (!response.ok) {
                 throw new Error(`API request failed with status: ${response.status}`)
             }
             
+            // get the response and save it on the ResultObj
             const data = await response.json()
             setResultObj(data)
+
         } catch (err) {
             setError('Error fetching exchange rates. Please try again.')
         }
     }
 
+    // clear the results
     const clearResults = () => {
         setResultObj({})
         setError('')
