@@ -65,9 +65,7 @@ export default function CurrencyForm() {
             }
             
             // fetch the response of the API key
-            const apiUrl = import.meta.env.PROD 
-                ? `https://imhotepexchangeratesapi.pythonanywhere.com/convert/latest_rates/${API_KEY}/${initialCurrency}/${targetCurrency}/${amount}`
-                : `/api/convert/latest_rates/${API_KEY}/${initialCurrency}/${targetCurrency}/${amount}`;
+            const apiUrl = `/api/convert/latest_rates/${API_KEY}/${initialCurrency}/${targetCurrency}/${amount}`;
             
             const response = await fetch(apiUrl);
             

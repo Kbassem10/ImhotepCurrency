@@ -3,8 +3,9 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/favicon.ico',
-  // Add other static assets as needed
+  '/assets/icc.png',
+  '/assets/icc.ico',
+  '/sw-register.js'
 ];
 
 // Install event - cache resources
@@ -105,8 +106,8 @@ self.addEventListener('push', (event) => {
   
   const options = {
     body: event.data ? event.data.text() : 'Currency rates updated!',
-    icon: '/favicon.ico',
-    badge: '/favicon.ico',
+    icon: '/assets/icc.png',
+    badge: '/assets/icc.png',
     vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),
