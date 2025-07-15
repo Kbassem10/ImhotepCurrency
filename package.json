@@ -1,13 +1,23 @@
 {
-  "name": "imhotep_currency",
+  "name": "imhotep-currency-converter",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.0",
   "type": "module",
+  "description": "Fast, reliable currency conversion with real-time exchange rates",
+  "keywords": ["currency", "converter", "exchange", "rates", "finance", "pwa"],
+  "author": "Imhotep Tech <imhoteptech@outlook.com>",
+  "license": "MIT",
+  "homepage": "https://imhotepcc.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kbassem10/ImhotepCurrency.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:prod": "npm run lint && vite build"
   },
   "dependencies": {
     "react": "^19.1.0",

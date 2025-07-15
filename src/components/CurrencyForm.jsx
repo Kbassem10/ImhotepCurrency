@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import currencies from '../data/currencies.js';
 import Result from './Result.jsx';
 
@@ -12,6 +12,7 @@ export default function CurrencyForm() {
     const [amount, setAmount] = useState(1)
     const [initialCurrency, setInitialCurrency] = useState("USD")
     const [targetCurrency, setTargetCurrency] = useState("EUR")
+    const resultSection = useRef(null)
 
     // create the filter to make the filter on the select menu
     const filteredFromCurrencies = currencies.filter(currency =>
@@ -64,9 +65,11 @@ export default function CurrencyForm() {
             }
             
             // fetch the response of the API key
-            const response = await fetch(
-                `/api/convert/latest_rates/${API_KEY}/${initialCurrency}/${targetCurrency}/${amount}`
-            );
+            const apiUrl = import.meta.env.PROD 
+                ? `https://imhotepexchangeratesapi.pythonanywhere.com/convert/latest_rates/${API_KEY}/${initialCurrency}/${targetCurrency}/${amount}`
+                : `/api/convert/latest_rates/${API_KEY}/${initialCurrency}/${targetCurrency}/${amount}`;
+            
+            const response = await fetch(apiUrl);
             
             // if the response isn't working then throw and error
             if (!response.ok) {
@@ -81,6 +84,17 @@ export default function CurrencyForm() {
             setError('Error fetching exchange rates. Please try again.')
         }
     }
+
+    useEffect(() => {
+        if (resultObj.data && resultSection.current) {
+            setTimeout(() => {
+                resultSection.current.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
+        }
+    }, [resultObj])
 
     // clear the results
     const clearResults = () => {
@@ -159,7 +173,7 @@ export default function CurrencyForm() {
                     Convert Currency
                 </button>
             </form>
-            <Result resultObj={resultObj} clearResults={clearResults} />
+            <Result resultObj={resultObj} clearResults={clearResults} resultRef={resultSection} />
         </main>
     )
 }

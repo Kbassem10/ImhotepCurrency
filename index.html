@@ -2,13 +2,105 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="/src/assets/icc.png" />
+    <link rel="shortcut icon" href="/src/assets/icc.png">
+    <link rel="apple-touch-icon" href="/src/assets/icc.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Viewport and Mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <title>Imhotep Currency Convertor</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="ICC">
+    
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#646cff">
+    <meta name="msapplication-TileColor" content="#646cff">
+    <meta name="msapplication-navbutton-color" content="#646cff">
+    
+    <!-- SEO Meta Tags -->
+    <title>Imhotep Currency Converter - Real-time Exchange Rates</title>
+    <meta name="description" content="Convert currencies instantly with real-time exchange rates. Fast, reliable, and easy-to-use currency converter supporting 150+ currencies worldwide.">
+    <meta name="keywords" content="currency converter, exchange rates, currency exchange, USD, EUR, GBP, real-time rates, forex, international money transfer, Imhotep Currency Converter">
+    <meta name="author" content="Imhotep Tech">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://imhotepcc.vercel.app/">
+    <meta property="og:title" content="Imhotep Currency Converter - Real-time Exchange Rates">
+    <meta property="og:description" content="Convert currencies instantly with real-time exchange rates. Fast, reliable, and easy-to-use currency converter supporting 150+ currencies worldwide.">
+    <meta property="og:image" content="https://imhotepcc.vercel.app/src/assets/icc.png">
+    <meta property="og:site_name" content="Imhotep Currency Converter">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://imhotepcc.vercel.app/">
+    <meta property="twitter:title" content="Imhotep Currency Converter - Real-time Exchange Rates">
+    <meta property="twitter:description" content="Convert currencies instantly with real-time exchange rates. Fast, reliable, and easy-to-use currency converter supporting 150+ currencies worldwide.">
+    <meta property="twitter:image" content="https://imhotepcc.vercel.app/src/assets/icc.png">
+    <meta property="twitter:creator" content="@Imhoteptech1">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://imhotepcc.vercel.app/">
+    
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="5VWhaKmsV5Wzrdko3_Si5vVnmNsMDttsJFA04mFxrsE" />
+    
+    <!-- External Resources -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Preconnect to external domains for better performance -->
+    <link rel="preconnect" href="https://imhotepexchangeratesapi.pythonanywhere.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Imhotep Currency Converter",
+      "description": "Convert currencies instantly with real-time exchange rates. Fast, reliable, and easy-to-use currency converter supporting 150+ currencies worldwide.",
+      "url": "https://imhotepcc.vercel.app/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "creator": {
+        "@type": "Organization",
+        "name": "Imhotep Tech",
+        "url": "https://imhoteptech.vercel.app"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

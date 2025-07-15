@@ -1,8 +1,8 @@
-export default function Result({ resultObj, clearResults }) {
+export default function Result({ resultObj, clearResults, resultRef }) {
     return (
         <>
             {resultObj.data && (
-                <div className="conversion-result">
+                <div className="conversion-result" ref={resultRef}>
                     <div className="result-card">
                         <h3 className="result-title">Conversion Result</h3>
                         <div className="result-content">
