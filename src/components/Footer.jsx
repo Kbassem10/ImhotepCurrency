@@ -13,24 +13,27 @@ export default function Footer() {
             </p>
           </div>
           
+          <div className="footer-social">
+            <a href="https://www.instagram.com/imhotep_tech?igsh=YXV0Y24xZnNveDQ5" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
+              <i className="fab fa-instagram" aria-hidden="true"></i>
+              <span className="sr-only">Instagram</span>
+            </a>
+            <a href="https://x.com/Imhoteptech1?t=E5JmfSp5WpyZaWkDzILpKw&s=09" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Twitter/X">
+              <i className="fab fa-twitter" aria-hidden="true"></i>
+              <span className="sr-only">Twitter</span>
+            </a>
+            <a href="https://github.com/Imhotep-Tech" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+              <i className="fab fa-github" aria-hidden="true"></i>
+              <span className="sr-only">GitHub</span>
+            </a>
+          </div>
+          
           <div className="footer-links">
-            <a href="https://imhoteptech.vercel.app" target="_blank" className="footer-link">
+            <a href="https://imhoteptech.vercel.app" target="_blank" rel="noopener noreferrer" className="footer-link">
               Imhotep Tech
             </a>
             <a href="mailto:imhoteptech@outlook.com" className="footer-link">
               Contact
-            </a>
-          </div>
-          
-          <div className="footer-social">
-            <a href="https://www.instagram.com/imhotep_tech?igsh=YXV0Y24xZnNveDQ5" target="_blank" className="social-link">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="https://x.com/Imhoteptech1?t=E5JmfSp5WpyZaWkDzILpKw&s=09" target="_blank" className="social-link">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="https://github.com/Imhotep-Tech" target="_blank" className="social-link">
-              <i className="fab fa-github"></i>
             </a>
           </div>
         </div>

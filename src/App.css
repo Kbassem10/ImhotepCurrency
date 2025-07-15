@@ -99,9 +99,15 @@
   padding: 0 2rem;
 }
 
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
 .footer-logo-section {
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .footer-logo {
@@ -121,6 +127,71 @@
   margin: 0;
 }
 
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-link {
+  color: #888;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  position: relative;
+}
+
+.social-link:hover {
+  color: #646cff;
+  background: rgba(100, 108, 255, 0.2);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(100, 108, 255, 0.3);
+}
+
+/* Fallback for when Font Awesome doesn't load */
+.social-link i::before {
+  font-family: 'Font Awesome 6 Brands', 'FontAwesome', sans-serif;
+}
+
+/* Fallback content for social icons */
+.social-link[aria-label*="Instagram"] i:not(.fab)::before,
+.social-link[aria-label*="Instagram"] i.fab:not([class*="fa-instagram"])::before {
+  content: "IG";
+  font-family: system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.social-link[aria-label*="Twitter"] i:not(.fab)::before,
+.social-link[aria-label*="Twitter"] i.fab:not([class*="fa-twitter"])::before {
+  content: "𝕏";
+  font-family: system-ui, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.social-link[aria-label*="GitHub"] i:not(.fab)::before,
+.social-link[aria-label*="GitHub"] i.fab:not([class*="fa-github"])::before {
+  content: "GH";
+  font-family: system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
 .footer-link {
   color: #888;
   text-decoration: none;
@@ -138,32 +209,17 @@
   transform: translateY(-2px);
 }
 
-.footer-social {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.social-link {
-  color: #888;
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
-  padding: 0.5rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.social-link:hover {
-  color: #646cff;
-  background: rgba(100, 108, 255, 0.2);
-  transform: translateY(-3px) scale(1.1);
-  box-shadow: 0 5px 15px rgba(100, 108, 255, 0.3);
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Mobile Responsive */
@@ -180,6 +236,11 @@
     width: 2.5rem;
     height: 2.5rem;
     font-size: 1.2rem;
+  }
+  
+  .footer-links {
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 }
 
