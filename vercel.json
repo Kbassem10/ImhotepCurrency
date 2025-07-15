@@ -23,16 +23,19 @@
       "source": "/manifest.json",
       "headers": [
         {
-          "source": "/(.*)",
-          "headers": [
-            {
-              "key": "Content-Security-Policy",
-              "value": "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'inline-speculation-rules'; object-src 'none';"
-            }
-          ]
+          "key": "Content-Security-Policy",
+          "value": "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'inline-speculation-rules'; object-src 'none';"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'inline-speculation-rules'; object-src 'none';"
         }
       ]
     }
   ]
 }
-  
