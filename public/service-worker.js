@@ -5,7 +5,8 @@ const urlsToCache = [
   '/manifest.json',
   '/assets/icc.png',
   '/assets/icc.ico',
-  '/sw-register.js'
+  '/sw-register.js',
+  '/fa-fallback.js'
 ];
 
 // Install event - cache resources

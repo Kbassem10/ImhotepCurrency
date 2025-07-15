@@ -157,33 +157,77 @@
 }
 
 /* Fallback for when Font Awesome doesn't load */
-.social-link i::before {
-  font-family: 'Font Awesome 6 Brands', 'FontAwesome', sans-serif;
+.social-link i {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Fallback content for social icons */
-.social-link[aria-label*="Instagram"] i:not(.fab)::before,
-.social-link[aria-label*="Instagram"] i.fab:not([class*="fa-instagram"])::before {
+/* Fallback content for social icons when Font Awesome fails to load */
+.social-link[aria-label*="Instagram"] i:not([class*="fa-instagram"])::before,
+.social-link[aria-label*="Instagram"] i::before {
+  content: "";
+}
+
+.social-link[aria-label*="Instagram"] i:not([class*="fa-instagram"])::after {
   content: "IG";
+  position: absolute;
   font-family: system-ui, sans-serif;
   font-size: 0.8rem;
   font-weight: bold;
+  color: currentColor;
 }
 
-.social-link[aria-label*="Twitter"] i:not(.fab)::before,
-.social-link[aria-label*="Twitter"] i.fab:not([class*="fa-twitter"])::before {
+.social-link[aria-label*="Twitter"] i:not([class*="fa-twitter"])::before,
+.social-link[aria-label*="Twitter"] i::before {
+  content: "";
+}
+
+.social-link[aria-label*="Twitter"] i:not([class*="fa-twitter"])::after {
   content: "𝕏";
+  position: absolute;
   font-family: system-ui, sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
+  color: currentColor;
 }
 
-.social-link[aria-label*="GitHub"] i:not(.fab)::before,
-.social-link[aria-label*="GitHub"] i.fab:not([class*="fa-github"])::before {
+.social-link[aria-label*="GitHub"] i:not([class*="fa-github"])::before,
+.social-link[aria-label*="GitHub"] i::before {
+  content: "";
+}
+
+.social-link[aria-label*="GitHub"] i:not([class*="fa-github"])::after {
   content: "GH";
+  position: absolute;
   font-family: system-ui, sans-serif;
   font-size: 0.8rem;
   font-weight: bold;
+  color: currentColor;
+}
+
+/* When Font Awesome loads successfully, hide fallback */
+.social-link i.fab::after {
+  display: none;
+}
+
+/* Fallback styles when Font Awesome doesn't load */
+.fa-fallback .social-link[aria-label*="Instagram"] i::after {
+  content: "📷";
+  font-size: 1.2rem;
+}
+
+.fa-fallback .social-link[aria-label*="Twitter"] i::after {
+  content: "🐦";
+  font-size: 1.2rem;
+}
+
+.fa-fallback .social-link[aria-label*="GitHub"] i::after {
+  content: "⚡";
+  font-size: 1.2rem;
 }
 
 .footer-links {

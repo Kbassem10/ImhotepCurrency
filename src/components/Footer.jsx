@@ -14,15 +14,33 @@ export default function Footer() {
           </div>
           
           <div className="footer-social">
-            <a href="https://www.instagram.com/imhotep_tech?igsh=YXV0Y24xZnNveDQ5" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
+            <a 
+              href="https://www.instagram.com/imhotep_tech?igsh=YXV0Y24xZnNveDQ5" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-link" 
+              aria-label="Visit our Instagram page"
+            >
               <i className="fab fa-instagram" aria-hidden="true"></i>
               <span className="sr-only">Instagram</span>
             </a>
-            <a href="https://x.com/Imhoteptech1?t=E5JmfSp5WpyZaWkDzILpKw&s=09" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Twitter/X">
+            <a 
+              href="https://x.com/Imhoteptech1?t=E5JmfSp5WpyZaWkDzILpKw&s=09" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-link" 
+              aria-label="Visit our Twitter/X page"
+            >
               <i className="fab fa-twitter" aria-hidden="true"></i>
               <span className="sr-only">Twitter</span>
             </a>
-            <a href="https://github.com/Imhotep-Tech" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+            <a 
+              href="https://github.com/Imhotep-Tech" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-link" 
+              aria-label="Visit our GitHub repository"
+            >
               <i className="fab fa-github" aria-hidden="true"></i>
               <span className="sr-only">GitHub</span>
             </a>
