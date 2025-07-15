@@ -4,7 +4,6 @@ import Footer from "./components/Footer"
 import CurrencyForm from "./components/CurrencyForm"
 
 export default function App() {
-
   return (
     <>
         <Header />
